@@ -30,6 +30,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.aspectj/aspectjtools
     compile group: 'org.aspectj', name: 'aspectjtools', version: '1.6.2'
 
+    compile('org.springframework.boot:spring-boot-starter-activemq')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb-reactive')
     compile('org.springframework.boot:spring-boot-starter-webflux')
     // https://mvnrepository.com/artifact/org.mongodb/mongodb-driver-reactivestreams
@@ -38,6 +39,14 @@ dependencies {
     compile group: 'org.modelmapper', name: 'modelmapper', version: '0.7.5'
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('io.projectreactor:reactor-test')
+}
+
+sourceSets {
+    local {
+        resources {
+            srcDir 'src/local/resources'
+        }
+    }
 }
 
 task copyProperties(type: Copy) {
